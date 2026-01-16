@@ -1,0 +1,127 @@
+---
+layout: default
+---
+
+<div class="container">
+    <article class="person-article">
+        <div class="profile-card">
+            {% if page.image %}
+                <img src="{{ page.image | relative_url }}" alt="{{ page.name }}" class="profile-image">
+            {% else %}
+                <div class="profile-image" style="background-color: #D4A574; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                    <i class="fas fa-user"></i>
+                </div>
+            {% endif %}
+            
+            <h1 class="profile-name">{{ page.name }}</h1>
+            
+            {% if page.title %}
+                <div class="profile-title">{{ page.title }}</div>
+            {% endif %}
+            
+            {% if page.affiliation %}
+                <p class="text-muted" style="text-align: center; margin-bottom: 1rem;">{{ page.affiliation }}</p>
+            {% endif %}
+            
+            {% if page.bio %}
+                <p class="profile-bio">{{ page.bio }}</p>
+            {% endif %}
+            
+            <!-- Social & Contact Links -->
+            {% if page.email or page.phone or page.linkedin or page.github or page.google_scholar or page.orcid %}
+                <div class="profile-links">
+                    {% if page.email %}
+                        <a href="mailto:{{ page.email }}" title="Email" data-toggle="tooltip">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    {% endif %}
+                    {% if page.linkedin %}
+                        <a href="{{ page.linkedin }}" title="LinkedIn" target="_blank" rel="noopener">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    {% endif %}
+                    {% if page.github %}
+                        <a href="{{ page.github }}" title="GitHub" target="_blank" rel="noopener">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    {% endif %}
+                    {% if page.google_scholar %}
+                        <a href="{{ page.google_scholar }}" title="Google Scholar" target="_blank" rel="noopener">
+                            <i class="fas fa-graduation-cap"></i>
+                        </a>
+                    {% endif %}
+                    {% if page.orcid %}
+                        <a href="{{ page.orcid }}" title="ORCID" target="_blank" rel="noopener">
+                            <i class="fab fa-orcid"></i>
+                        </a>
+                    {% endif %}
+                </div>
+            {% endif %}
+            
+            <!-- Contact Information -->
+            {% if page.phone or page.office or page.location %}
+                <div class="profile-sections">
+                    <div class="profile-section">
+                        <h3>Contact</h3>
+                        {% if page.phone %}
+                            <p><strong>Phone:</strong> <a href="tel:{{ page.phone }}">{{ page.phone }}</a></p>
+                        {% endif %}
+                        {% if page.email %}
+                            <p><strong>Email:</strong> <a href="mailto:{{ page.email }}">{{ page.email }}</a></p>
+                        {% endif %}
+                        {% if page.office %}
+                            <p><strong>Office:</strong> {{ page.office }}</p>
+                        {% endif %}
+                        {% if page.location %}
+                            <p><strong>Location:</strong> {{ page.location }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        
+        <!-- Main Content -->
+        <div style="margin-top: 3rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+            {{ content }}
+        </div>
+        
+        <!-- Research Areas -->
+        {% if page.research_areas %}
+            <div style="margin-top: 3rem; max-width: 900px; margin-left: auto; margin-right: auto; padding: 2rem; background-color: #F5F1E8; border-radius: 0.5rem;">
+                <h3>Research Areas</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                    {% for area in page.research_areas %}
+                        <div>
+                            <strong>{{ area.name }}</strong>
+                            <p class="text-muted">{{ area.years }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+        
+        <!-- Academic Links -->
+        {% if page.academic_links %}
+            <div style="margin-top: 3rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+                <h3>Academic Profiles</h3>
+                <ul style="list-style: none; margin-left: 0;">
+                    {% for link in page.academic_links %}
+                        <li style="margin-bottom: 0.75rem;">
+                            <a href="{{ link.url }}" target="_blank" rel="noopener" class="text-gold">
+                                <i class="fas fa-external-link-alt"></i> {{ link.name }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        
+        <!-- Role in GAIR Lab -->
+        {% if page.gair_role %}
+            <div style="margin-top: 3rem; max-width: 900px; margin-left: auto; margin-right: auto; padding: 2rem; background-color: rgba(0, 217, 255, 0.05); border-left: 4px solid #00D9FF; border-radius: 0.5rem;">
+                <h3 style="color: #00D9FF; margin-top: 0;">Role in GAIR Lab</h3>
+                {{ page.gair_role | markdownify }}
+            </div>
+        {% endif %}
+    </article>
+</div>

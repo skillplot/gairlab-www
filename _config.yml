@@ -1,0 +1,94 @@
+# Site Configuration
+title: "GAIR Lab"
+tagline: "Generative AI Research"
+description: "GAIR Lab - Generative AI Research Laboratory at BITS Pilani, a collaborative initiative with Skillplot"
+url: "https://gairlab.skillplot.org"
+baseurl: ""
+
+# Author & Social
+author:
+  name: "GAIR Lab"
+  email: "ashutosh.bhatia@pilani.bits-pilani.ac.in"
+  twitter: "theskillplot"
+  github: "skillplot"
+
+# Theme
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+  people:
+    output: true
+    permalink: /people/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+  - scope:
+      path: ""
+      type: "people"
+    values:
+      layout: "person"
+
+# Markdown
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: true
+
+# Future posts not published
+future: false
+
+# Build settings
+exclude:
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+
+# GAIR Lab Branding
+brand:
+  colors:
+    midnight: "#0F1B3C"
+    gold: "#D4A574"
+    cyan: "#00D9FF"
+    cream: "#F5F1E8"
+    gray: "#6B7280"
+  fonts:
+    heading: "'Libre Baskerville', Georgia, serif"
+    body: "'Inter', system-ui, sans-serif"
+
+# Lab Info
+lab:
+  name: "GAIR Lab"
+  full_name: "Generative AI Research Laboratory"
+  institution: "BITS Pilani"
+  affiliation: "Skillplot × BITS Pilani"
+  location: "Pilani Campus, Rajasthan, India"
+  email: "gairlab@skillplot.org"
+  github: "https://github.com/skillplot/gairlab-www"
+  
+# Site Structure
+navigation:
+  - title: "Home"
+    url: "/"
+  - title: "Projects"
+    url: "/projects/"
+  - title: "People"
+    url: "/people/"
+  - title: "About"
+    url: "/about/"
+  - title: "Contact"
+    url: "/contact/"

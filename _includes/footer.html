@@ -1,0 +1,63 @@
+<footer>
+    <div class="footer-content">
+        <div class="footer-grid">
+            <!-- Lab Info -->
+            <div class="footer-section">
+                <h4>{{ site.lab.name }}</h4>
+                <p style="font-size: 0.95rem;">{{ site.lab.full_name }}</p>
+                <p style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.6);">{{ site.lab.affiliation }}</p>
+            </div>
+            
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{{ '/' | relative_url }}">Home</a></li>
+                    <li><a href="{{ '/projects/' | relative_url }}">Projects</a></li>
+                    <li><a href="{{ '/people/' | relative_url }}">People</a></li>
+                    <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+                </ul>
+            </div>
+            
+            <!-- Resources -->
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="{{ '/contact/' | relative_url }}">Get in Touch</a></li>
+                    <li><a href="https://github.com/skillplot" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="https://skillplot.org" target="_blank" rel="noopener">Skillplot.org</a></li>
+                    <li><a href="https://www.bits-pilani.ac.in" target="_blank" rel="noopener">BITS Pilani</a></li>
+                </ul>
+            </div>
+            
+            <!-- Contact -->
+            <div class="footer-section footer-contact">
+                <h4>Contact</h4>
+                {% if site.lab.email %}
+                    <p><i class="fas fa-envelope" style="color: #D4A574; margin-right: 0.5rem;"></i> <a href="mailto:{{ site.lab.email }}">{{ site.lab.email }}</a></p>
+                {% endif %}
+                {% if site.lab.location %}
+                    <p><i class="fas fa-map-marker-alt" style="color: #D4A574; margin-right: 0.5rem;"></i> {{ site.lab.location }}</p>
+                {% endif %}
+                <p style="margin-top: 1rem;"><strong>Follow Us</strong></p>
+                <div style="display: flex; gap: 1rem; margin-top: 0.75rem;">
+                    {% if site.author.github %}
+                        <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener" title="GitHub">
+                            <i class="fab fa-github" style="font-size: 1.25rem;"></i>
+                        </a>
+                    {% endif %}
+                    {% if site.author.twitter %}
+                        <a href="https://twitter.com/{{ site.author.twitter }}" target="_blank" rel="noopener" title="Twitter">
+                            <i class="fab fa-twitter" style="font-size: 1.25rem;"></i>
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>&copy; {{ site.time | date: "%Y" }} GAIR Lab × Skillplot × BITS Pilani. All rights reserved.</p>
+        </div>
+    </div>
+</footer>

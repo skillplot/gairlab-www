@@ -1,0 +1,74 @@
+---
+layout: default
+---
+
+<div class="container">
+    <article class="project-article">
+        <div class="project-header" style="margin-bottom: 3rem;">
+            <a href="{{ '/projects/' | relative_url }}" class="btn btn-outline" style="margin-bottom: 1.5rem; display: inline-block;">
+                <i class="fas fa-arrow-left"></i> Back to Projects
+            </a>
+            
+            <h1>{{ page.title }}</h1>
+            
+            {% if page.brief_description %}
+                <p class="subtitle text-gold" style="font-size: 1.25rem; margin: 1.5rem 0;">{{ page.brief_description }}</p>
+            {% endif %}
+            
+            {% if page.status %}
+                <div style="margin-top: 1rem;">
+                    <span class="tag" style="background-color: 
+                        {% if page.status == 'Active' %}rgba(0, 217, 255, 0.2); color: #00D9FF;
+                        {% elsif page.status == 'Planned' %}rgba(212, 165, 116, 0.2); color: #D4A574;
+                        {% else %}rgba(107, 114, 128, 0.2); color: #6B7280;
+                        {% endif %}
+                    ">
+                        Status: {{ page.status }}
+                    </span>
+                </div>
+            {% endif %}
+        </div>
+        
+        <div class="project-content">
+            {{ content }}
+        </div>
+        
+        {% if page.disciplines %}
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #F5F1E8;">
+                <h3>Preferred Student Disciplines</h3>
+                <ul>
+                    {% for discipline in page.disciplines %}
+                        <li>{{ discipline }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        
+        {% if page.affiliation %}
+            <div style="margin-top: 2rem; padding: 1.5rem; background-color: #F5F1E8; border-radius: 0.5rem;">
+                <p style="margin: 0;"><strong>Affiliation:</strong> {{ page.affiliation }}</p>
+            </div>
+        {% endif %}
+        
+        <div style="margin-top: 3rem; text-align: center;">
+            <p class="text-muted">Have questions about this project? <a href="{{ '/contact/' | relative_url }}" class="text-gold">Get in touch</a></p>
+        </div>
+    </article>
+</div>
+
+<style>
+    .project-article h2 {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .project-article h3 {
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+        font-size: 1.375rem;
+    }
+    
+    .project-article ul, .project-article ol {
+        margin-left: 2rem;
+    }
+</style>
