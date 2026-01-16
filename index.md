@@ -6,7 +6,7 @@ permalink: /
 
 <div class="hero">
     <div class="hero-content">
-        <img src="{{ '/assets/img/gair-logo-white.png' | relative_url }}" alt="GAIR Lab Logo" class="logo-hero">
+        <img src="{{ '/assets/img/gair-logo-tree.png' | relative_url }}" alt="GAIR Lab Logo" class="logo-hero">
         
         <h1>GAIR Lab</h1>
         <div class="tagline">Generative AI Research</div>
